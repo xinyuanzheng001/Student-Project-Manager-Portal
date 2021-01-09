@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/user.css" rel="stylesheet">
+    <title>Professor: View Project</title>
+</head>
+<body>
+    <h1>Project Portal</h1>
+    <div class="main">
+        <div class="nav">
+            <svg width="15em" height="10em" viewBox="0 0 16 16" class="bi-person" fill="white" >
+            <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+            <ul class="nav-bar">
+                <li class="list-item"><a href="/professor/createcourse">Create a Course</a></li>
+                <li class="list-item"><a href="/professor/admin-view-courses">View Courses</a></li>
+                <li class="list-item"><a href="/professor/addproject">Add Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-view-projects">View Projects</a></li>
+                <li class="list-item"><a href="/professor/select-project">Assign Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-settings">Settings</a></li>
+                <li class="list-item"><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="courses">
+            {{!-- <div>
+                <h2>{{project_name}}</h2>
+                <h4>CS{{course_number}}</h4>
+            </div>
+            <hr>
+            <div>
+                <p class="project-details">{{project_detail}}</p>
+            </div>
+            <hr>
+            <div>
+                <h3>Client</h3>
+                <p>{{client_name}}</p>
+                <p>{{client_contact}}</p>
+            </div>
+            <hr>
+            <div>
+                <h3>Extra Details</h3>
+                <p>{{extra_details}}</p>
+            </div> --}}
+            {{#if message}}
+            <p class="alert">{{message}}</p>
+            {{/if}}
+            <form action="update" method="POST">
+               
+            <input type="hidden" name="project_id" value="{{project_id}}">
+            <h2>{{project_name}}</h2>
+            <div class="project-detail">
+                <label for="">Client Name:</label>
+                {{!-- <p class="project-info">{{client_name}}</p> --}}
+                <input type="text" name="client_name" value={{client_name}} class="project-info">
+            </div>
+            <div class="project-detail">
+                <label for="">Client Contact:</label>
+                {{!-- <p class="project-info">{{client_contact}}</p> --}}
+                <input type="text" name="client_contact" class="project-info"value={{client_contact}}>
+            </div>
+            <div class="project-detail">
+                <label for="">Project Description: </label>
+                {{!-- <p class="project-info">{{project_detail}}</p> --}}
+                <textarea name="project_detail" id="project_detail" class="project-info" rows="7">{{project_detail}}</textarea>
+            </div>
+            <div class="user-info">
+            <button class="update">Update</button>
+            </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

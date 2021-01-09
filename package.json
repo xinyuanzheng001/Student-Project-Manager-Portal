@@ -1,0 +1,30 @@
+{
+  "name": "student-portal-manager",
+  "version": "1.0.0",
+  "description": "A web-based application that manages projects for software engineering/development courses.",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://gitlab.com/guthemberg/student-portal-manager.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://gitlab.com/guthemberg/student-portal-manager/issues"
+  },
+  "homepage": "https://gitlab.com/guthemberg/student-portal-manager#readme",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.2.0",
+    "express-session": "^1.17.1",
+    "hbs": "^4.1.1",
+    "md5": "^2.3.0",
+    "mysql": "^2.18.1",
+    "nodemon": "^2.0.6"
+  }
+}

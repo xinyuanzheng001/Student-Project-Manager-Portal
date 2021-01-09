@@ -1,0 +1,547 @@
+html {
+    scroll-behavior: smooth;
+    overflow-y: auto
+}
+
+body {
+    font-family: open sans,helvetica neue,Helvetica,Tahoma,sans-serif;
+    overflow: hidden;
+    min-width: 660px;
+    background-color: #006094;
+    color: white;
+}
+
+h1 {   
+    text-align: center;
+    color: white;
+    padding: 20px;
+    padding-top: 0;
+    /* font-size: 300%; */
+    font-weight: 800;
+}
+
+.main {
+    padding: 20px;
+}
+.nav {
+    float: left;
+    /* height: 100%; */
+    width: 20%;
+    border: 2px lightgray solid;
+    background-color: #014b74;
+}
+
+.bi-person {
+    margin: auto;
+    color: gray;
+    font-size: large;
+    border-top: 1px lightgray solid;
+    border-left: 1px lightgray solid;
+    border-right: 1px lightgray solid;
+    width: 100%;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+.nav-bar {
+    /* width: 20%; */
+    /* float: left; */
+    background-color: #006094;
+    height: 76vh;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.list-item {
+    padding: 10px;
+    text-align: center;
+    border-bottom: 1px lightgrey solid;
+    border-top: 1px lightgray solid;
+}
+a {
+    text-decoration: none;
+    color: white;
+    font-weight: 800;
+}
+
+.nav-bar :hover{
+    background-color: #585858;
+}
+.courses {
+    float: left;
+    /* border-top: 2px lightgray solid; */
+    /* border-bottom: 2px lightgray solid; */
+    /* border-right: 2px lightgray solid; */
+    width: 79%;
+    /* height: 100vh; */
+    text-align: center;
+}
+
+#add-course {
+    width: 30%;
+    margin: auto;
+    margin-top: 30%;
+}
+
+.input-box {
+    margin:10px;
+    margin-left: 0;
+}
+
+.enrolled-title {
+    border-top: 2px lightgrey solid;
+    border-right: 2px lightgrey solid;
+    border-bottom: 2px lightgrey solid;
+    margin-left: 20.5%;
+    width: 85%;
+    padding-top: 20px;
+    padding-left: 10px;
+    position: relative;
+    top: -19px;
+    left:-7px
+}
+
+.enrolled-description {
+    border-right: 2px lightgrey solid;
+    border-bottom: 2px lightgrey solid;
+    margin-left: 20.5%;
+    width: 85%;
+    padding-top: 0px;
+    padding-bottom: 12px;
+    padding-left: 10px;
+    position: relative;
+    left:-7px
+}
+
+.alert {
+    margin-top: 25px;
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    background-color: #014b74;
+}
+
+#course {
+    border: 2px gray solid;
+    height: 50%;
+}
+.create-course {
+    width: 50%;
+    margin: auto;
+    margin-top: 15%;
+    height: 50%;
+    /* border: 2px lightgray solid; */
+    /* height: 50%; */
+}
+
+h2 {
+    margin-top: 10%;
+}
+
+
+.course-info {
+    float: left;
+    text-align: left;
+    width: 50%;
+    font-size: large;
+    margin-left: 10%;
+    margin-top: 10px;
+}
+
+.course-des {
+    width: 80%;
+    max-width: 80%;
+    min-width: 80%;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    border-bottom: 1px gray solid;
+    font-size: large;
+}
+.course-number {
+    width: 80%;
+    margin-top: 5px;
+    height: 25px;
+    background-color: transparent;
+    border: none;
+    text-align: center;
+    border-bottom: 1px gray solid;
+    color: white;
+}
+.course-number, .course-des:focus {
+    outline: none;
+}
+
+#description {
+    width: 80%;
+    height: 70px;
+}
+
+.btn {
+    width: 25%;
+    margin-top: 10px;
+    height: 30px;
+    margin-right: 10%;
+    float: right;
+}
+
+.select-btn {
+    float: right;
+    margin-right: 15%;
+    font-size: 20px;
+    height: 30px;
+}
+.opt {
+    width: 55%;
+    color: black;
+}
+.select-pro {
+    width: 30%;
+    margin-left: 20%;
+    height: 30px;
+}
+.proj-info {
+    width: 70%;
+    margin: auto;
+
+}
+.form-one-line-input {
+    width: 100%;
+    /* background-color: black; */
+}
+.pname {
+    float: left;
+    font-size: 20px;
+}
+
+.add-project-info {
+    width: 100%;
+    /* float: left; */
+    border: none;
+    height: 30px;
+    text-align: center;
+    border-width: 0;
+    background-color: transparent;
+    border-bottom: 2px solid lightgray;
+    color: white;
+    font-size: 20px;
+    margin:auto;
+    max-width: 100%;
+    min-width: 100%;
+}
+.add-project-info:focus{
+    outline: none;
+}
+
+.add-proj-btn {
+    margin-top:15px;
+    height: 30px;
+    width: 25%;
+    float:right;
+    cursor: pointer;
+}
+.add-proj-btn:hover {
+    background-color: lightyellow;
+}
+
+.project-detail {
+    width: 50%;
+    margin: auto;
+    text-align: left;
+    padding-bottom: 15px;
+    font-size: 20px;
+
+}
+
+#btn {
+    margin-bottom: 10%;
+}
+.project-info {
+    width: 65%;
+    margin: auto;
+    float: right;
+    border: none;
+    border-bottom: 1px solid lightgray;
+    background-color: transparent;
+    color: white;
+    text-align: center;
+}
+#project_detail {
+    max-width: 65%;
+    min-width: 65%;
+    color: white;
+    background-color: transparent;
+}
+.update {
+    margin-right:25%;
+    width: 20%;
+    float: right;
+    margin-top: 15px;
+}
+/* .add-project {
+    border: 2px solid white;
+    display: flex;
+    flex-direction: column;
+} */
+/* 
+.add-proj-h2 {
+    margin-top: 5%;
+}
+
+
+.proj-info {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: flex-start;
+    height: 100%;
+    width: 50%;
+    margin: auto;
+    /* text-align: center; */
+
+
+/* .form-one-line-input,
+.form-multi-line-input {
+    width: 100%;
+}
+
+.form-one-line-input > label,
+.form-multi-line-input > label {
+    float: left;
+    margin-bottom: 5px;
+}
+
+.form-one-line-input > input,
+.form-multi-line-input > textarea {
+    width: 71%;
+}
+
+.form-one-line-input {
+    float: left;
+}
+
+.form-multi-line-input > label {
+    position: relative;
+    bottom: 20px;
+    margin-bottom: 50px;
+}
+
+textarea {
+    resize: vertical;
+}
+
+.form-multi-line-input {
+    margin: 0px;
+} */ 
+
+.course-table {
+    width: 70%;
+    margin: auto;
+    margin-top: 5%;
+}
+
+.projects-page {
+    margin-top: 1%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+  }
+  
+th, td {
+padding: 15px;
+text-align: left;
+border-bottom: 1px solid #ddd;
+}
+
+tr:nth-child(even) {
+    background-color:#014b74;
+}
+
+tr:hover {background-color:#585858;}
+
+
+
+.profile {
+    background-color: white;
+    color: black;
+}
+
+.personal-profile {
+    width: 50%;
+    margin: auto;
+}
+
+.user-info {
+    width: 100%;
+    /* border: 2px black solid; */
+}
+
+.fname {
+    float: left;
+    font-size: 20px;
+    margin-bottom: 5px;
+    padding-top: 15px;
+}
+
+br {
+    clear: both;
+}
+.username {
+    width: 100%;
+    height: 30px;
+    float: left;
+    text-align: center;
+    border: none;
+    border-width: 0;
+    background-color: transparent;
+    border-bottom: 2px solid lightgray;
+    color: white;
+    font-size: 20px;
+}
+.username:focus {
+    outline: none;
+}
+
+.btn-update {
+    width: 101%;
+    height: 30px;
+    margin-top: 10px;
+}
+
+span {
+    font-size: 25px;
+    /* padding-right: 15px; */
+    /* padding-left: 15px; */
+}
+
+.choice-and-list {
+    margin: auto;
+    width: 40%;
+    margin-left: 15%;
+    /* float: left; */
+    text-align: left;
+}
+
+select {
+    font-size: 20px;
+}
+
+
+.project-choices {
+    width: 100%;
+}
+.choices {
+    margin: auto;
+    width: 100%;
+    margin-left: 25%;
+    /* text-align: right; */
+}
+.submit-prefs {
+    /* position: relative; */
+    top: 20px;
+    font-size: 25px;
+    float: right;
+    margin-right: 20%;
+}
+
+.submit-btn {
+    border: none;
+    background: none;
+    cursor: pointer;
+    text-decoration: underline;
+    color: white;
+    font-weight: 500;
+}
+
+.header{
+    margin-top: 5%;
+}
+.project-table {
+    margin-top: 5%;
+    width: 70%;
+    margin: auto;
+    border-top: 5px rgb(102, 102, 102) solid;
+}
+
+
+.delete {
+    position: fixed;
+    top: 50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    border: 1px solid black;
+    border-radius: 15px;
+    z-index: 10;
+    background-color: white;
+    width: 500px;
+    max-width: 70%;
+    color: black;
+    display:none;
+}
+
+.delete.active {
+    transform: translate(-50%, -50%);
+    display: initial;
+}
+.delete-header {
+    padding: 10px 15px;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid black;
+}
+
+.delete-header .delete-title {
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.delete-header .close-button {
+    cursor: pointer;
+    border:none;
+    outline: none;
+    background: none;
+    font-size: 1.25rem;
+    font-weight: bold;
+}
+
+.choose {
+    padding: 10px 15px;
+}
+
+.choose-btn {
+    width: 80px;
+    cursor: pointer;
+}
+
+.choose-btn:hover {
+    background-color: lightblue;
+}
+
+#overlay {
+    position: fixed;
+    opacity: 0;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0,0,0,.5);
+    pointer-events: none;
+}
+#overlay.active {
+    opacity: 1;
+    pointer-events: all;
+}
+
+.project-details{
+    position: relative;
+    left: 10%;
+    width: 75%;
+}
+
+.assign-groups {
+    font-size: 25px
+}

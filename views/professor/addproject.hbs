@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link href="/user.css" rel="stylesheet">
+        <title>Create a Project</title>
+    </head>
+    <body>
+        <h1>Project Portal</h1>
+        <div class="main">
+            <div class="nav">
+                <svg width="15em" height="10em" viewBox="0 0 16 16" class="bi-person" fill="white" >
+                <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+                </svg>
+                <ul class="nav-bar">
+                    <li class="list-item"><a href="/professor/createcourse">Create a Course</a></li>
+                    <li class="list-item"><a href="/professor/admin-view-courses">View Courses</a></li>
+                    <li class="list-item"><a href="/professor/addproject">Add Projects</a></li>
+                    <li class="list-item"><a href="/professor/admin-view-projects">View Projects</a></li>
+                    <li class="list-item"><a href="/professor/select-project">Assign Projects</a></li>
+                    <li class="list-item"><a href="/professor/admin-settings">Settings</a></li>
+                    <li class="list-item"><a href="/auth/logout">Logout</a></li>
+                </ul>
+            </div>
+            <div class="courses">
+                {{#if message}}
+                    <p class="alert">{{message}}</p>
+                {{/if}}
+                <form action="/professor/addproject" method="POST" class="add-project">
+                    <h2 class="add-proj-h2">Add a Project</h2>
+                    <div class="proj-info">
+                        <div class= "form-one-line-input">
+                            <label for="" class="pname">Project Name (*)</label>
+                            <input placeholder="Enter Project Name" type="text" class="add-project-info" name="projectName" required="required">
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Description</label>
+                            <textarea placeholder="Enter Project Description" class="add-project-info" name="projectDescription"></textarea>
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Client Name (*)</label>
+                            <input placeholder="Enter Client Name" type="text" class="add-project-info" name="clientName" required="required">
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Client Email (*)</label>
+                            <input placeholder="Enter Client Email" type="email" class="add-project-info" name="clientEmail" required="required"> 
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Extra Details</label>
+                            <textarea placeholder="Extra details" class="add-project-info" name="extraDetails"></textarea>
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Number of students in this group</label>
+                            <input placeholder="How many students will work on this project?" type="number" class="add-project-info" name="capacity" required="required">
+                        </div>
+                        <div class="form-one-line-input">
+                            <label for="" class="pname">Assign to (*)</label>
+                            <input type="text" class="add-project-info" name="courseID" placeholder="Enter course ID" required="required">
+                        </div>
+                        <div class="form-one-line-input">
+                        <input type="submit" value="Add Project" class="add-proj-btn"></input>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/user.css">
+    <title>Professor: View Projects</title>
+</head>
+<body>
+    <h1>Project Portal</h1>
+    <div class="main">
+        <div class="nav">
+            <svg width="15em" height="10em" viewBox="0 0 16 16" class="bi-person" fill="white" >
+            <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+            <ul class="nav-bar">
+                <li class="list-item"><a href="/professor/createcourse">Create a Course</a></li>
+                <li class="list-item"><a href="/professor/admin-view-courses">View Courses</a></li>
+                <li class="list-item"><a href="/professor/addproject">Add Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-view-projects">View Projects</a></li>
+                <li class="list-item"><a href="/professor/select-project">Assign Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-settings">Settings</a></li>
+                <li class="list-item"><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="courses">
+            {{#if message }}
+                <p class="alert">{{ message }}</p>
+            {{else}}
+                <table class="course-table">
+                    <tr>
+                        <th>Project Name</th>
+                        <th>Client Name</th>
+                        <th>Course</th>
+                        <th>Delete</th>
+                    </tr>
+                    {{#each results}}
+                    <tr>
+                        <td>
+                            <form action="/professor/view-project" method="POST">
+                                <input type="submit" value="{{project_name}}" class="submit-btn">
+                                {{!-- <input type="submit" name="courseIdentification" value="{{course_id}}"> --}}
+                                <input type="hidden" name="projectName" value="{{project_name}}">
+                                <input type="hidden" name="courseID" value="{{id}}">
+                                <input type="hidden" name="projectDetail" value="{{project_detail}}">
+                                <input type="hidden" name="clientName" value="{{client_name}}">
+                                <input type="hidden" name="clientContact" value="{{client_contact}}">
+                                <input type="hidden" name="extraDetails" value="{{extra_details}}">
+                                <input type="hidden" name="courseNumber" value="{{course_number}}">
+                                <input type="hidden" name="project_id" value="{{project_id}}">
+                            </form>
+                        </td>
+                        <td>{{client_name}}</td>
+                        <td>{{course_number}}</td> 
+                        <form action="/professor/admin-view-projects" method="POST">
+                            <td><button data-modal-target="#delete" onclick="clicked(event)">Delete</button></td>
+                            <input type="hidden" name="projectName" value="{{project_name}}">
+                            <input type="hidden" name="courseID" value="{{id}}">
+                            <input type="hidden" name="projectDetail" value="{{project_detail}}">
+                            <input type="hidden" name="clientName" value="{{client_name}}">
+                            <input type="hidden" name="clientContact" value="{{client_contact}}">
+                            <input type="hidden" name="extraDetails" value="{{extra_details}}">
+                            <input type="hidden" name="course_number" value="{{course_number}}">
+                            <input type="hidden" name="project_id" value="{{project_id}}">
+                        </form>
+                        {{!-- <div class="delete" id="delete">
+                            <div class="delete-header">
+                                <div class="delete-title">Are you sure want to delete this project?</div>
+                                <button data-close-button class="close-button">&times;</button>
+                            </div>
+                            <div class="choose">
+                                <form action="/professor/admin-view-projects" method="POST">
+                                    <input type="hidden" name="projectName" value="{{project_name}}">
+                                    <input type="hidden" name="projectID" value="{{id}}">
+                                    <input type="hidden" name="projectDetail" value="{{project_detail}}">
+                                    <input type="hidden" name="clientName" value="{{client_name}}">
+                                    <input type="hidden" name="clientContact" value="{{client_contact}}">
+                                    <input type="hidden" name="extraDetails" value="{{extra_details}}">
+                                    <input type="hidden" name="course_number" value="{{course_number}}">
+                                    <input type="hidden" name="project_id" value={{project_id}}>
+                                    <button class="choose-btn">Yes</button>
+                                </form>
+                                <button class="choose-btn">No</button>
+                            </div>
+                        </div> --}}
+                    </tr>
+                    {{/each}}
+                </table>
+            {{/if}}
+
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <script>
+        function clicked(e) {
+            if(!confirm("Are you sure want to delete this project?")) {
+                e.preventDefault();
+            }
+        }
+        {{!-- const deleteButton = document.querySelectorAll('[data-modal-target]');
+        const closeButton = document.querySelectorAll('.close-button');
+        const overlay = document.getElementById('overlay');
+        const choose = document.querySelectorAll('.choose-btn');
+        deleteButton.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = document.querySelector(button.dataset.modalTarget);
+                openModal(modal);
+            })
+        })
+        closeButton.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.delete');
+                closeModal(modal);
+            })
+        })
+        choose.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.delete');
+                closeModal(modal);
+            })
+        })
+        function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+        function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        } --}}
+    </script>
+</body>
+</html>

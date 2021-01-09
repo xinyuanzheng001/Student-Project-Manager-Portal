@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/user.css">
+    <title>Professor: View Courses</title>
+</head>
+<body>
+    <h1>Project Portal</h1>
+    <div class="main">
+        <div class="nav">
+            <svg width="15em" height="10em" viewBox="0 0 16 16" class="bi-person" fill="white" >
+            <path fill-rule="evenodd" d="M10 5a2 2 0 1 1-4 0 2 2 0 0 1 4 0zM8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm6 5c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
+            </svg>
+            <ul class="nav-bar">
+                <li class="list-item"><a href="/professor/createcourse">Create a Course</a></li>
+                <li class="list-item"><a href="/professor/admin-view-courses">View Courses</a></li>
+                <li class="list-item"><a href="/professor/addproject">Add Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-view-projects">View Projects</a></li>
+                <li class="list-item"><a href="/professor/select-project">Assign Projects</a></li>
+                <li class="list-item"><a href="/professor/admin-settings">Settings</a></li>
+                <li class="list-item"><a href="/auth/logout">Logout</a></li>
+            </ul>
+        </div>
+        <div class="courses">
+            {{#if message }}
+                <p class="alert">{{ message }}</p>
+            {{else}}
+                <table class="course-table">
+                    <tr>
+                        <th>Course</th>
+                        {{!-- <th>Professor</th> --}}
+                        <th>Description</th>
+                        <th>Course ID</th>
+                    </tr>
+                    {{#each results}}
+                    <tr>
+                        <form action="admin-view-courses" method="POST"></form>
+                        <td>{{course_number}}</td>
+                        {{!-- <td>{{professor}}</td> --}}
+                        <td>{{course_description}}</td>
+                        <td>{{id}}</td>
+                        {{!-- <form action="admin-view-courses" method="POST">
+
+                        <td><input type="submit" value="Delete" class='btn'></td>
+                        </form> --}}
+                        {{!-- <td><button data-modal-target="#delete" value={{id}}>Delete</button></td> --}}
+                        <input type="hidden" name="course_id" value={{id}}>
+                        <td><button data-modal-target="#delete" value={{id}}>Delete</button></td>
+                        <div class="delete" id="delete">
+                            <div class="delete-header">
+                                <div class="delete-title">Are you sure want to delete this course?</div>
+                                <button data-close-button class="close-button">&times;</button>
+                            </div>
+                            <div class="choose">
+                                {{!-- <form action="admin-view-courses" method="POST" > --}}
+                                    {{!-- <input type="hidden" name="course_id" value={{id}}> --}}
+                                    <button class="choose-btn">Yes</button>
+                                    {{!-- <input type="submit" class="choose-btn" value="Yes" id="yes-btn"> --}}
+                                </form>
+                                </form>
+                                <button class="choose-btn">No</button>
+                            </div>
+                        </div>
+                    </tr>
+                    {{/each}}
+                </table>
+            {{/if}}
+        </div>
+    </div>
+    <div id="overlay"></div>
+    <script>
+        const deleteButton = document.querySelectorAll('[data-modal-target]');
+        const closeButton = document.querySelectorAll('.close-button');
+        const overlay = document.getElementById('overlay');
+        const choose = document.querySelectorAll('.choose-btn');
+        const yesButton = document.querySelectorAll("#yes-btn");
+        deleteButton.forEach(button => {
+            button.addEventListener('click', () => {
+
+                const modal = document.querySelector(button.dataset.modalTarget);
+                console.log(modal);
+                console.log(modal.value);
+                openModal(modal);
+            })
+        })
+        closeButton.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.delete');
+                closeModal(modal);
+            })
+        })
+        choose.forEach(button => {
+            button.addEventListener('click', () => {
+                const modal = button.closest('.delete');
+                closeModal(modal);
+            })
+        })
+        yesButton.forEach(button => {
+            button.addEventListener("submit", (e) => {
+                e.preventDefault();
+                const modal = button.closest('.delete');
+                closeModal(modal);
+            })
+        })
+        function openModal(modal) {
+            if (modal == null) return
+            modal.classList.add('active');
+            overlay.classList.add('active');
+        }
+        function closeModal(modal) {
+            if (modal == null) return
+            modal.classList.remove('active');
+            overlay.classList.remove('active');
+        }
+    </script>
+</body>
+</html>

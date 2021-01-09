@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style.css" rel="stylesheet">
+    <title>Register</title>
+</head>
+<header>
+    <h1>Project Portal</h1>
+    <h2>UMass Boston - Computer Science Dept.</h2>
+</header>
+<body>
+    {{#if message }}
+        <p class="alert"> {{ message }} </p>
+    {{/if }}
+    <form id="login" action="/auth/register" method="POST">
+        <div class="un">
+            <label for="fname" class="uname">Your Name:</label>
+            <input type="text" class="uname" id="fname" required="required" name="username">
+        </div>
+        <span id="error-password" style="display: none;"><br></span>
+        <div class="email">
+            <label for="email" class="user-email">Email:</label>
+            <input type="email" name="email" id="user-email" required="required" >
+        </div>
+        <div class="pw">
+            <label for="pass" class="pword"> Password:</label>
+            <input type="password" class="pword" id="password" required="required" name="password">
+        </div>
+        <div class="confirm">    
+            <label for="confirm-password" class="pword">Confirm: </label>
+            <input type="password" id="confirm-password" required="required" name="confirmPassword">
+        </div>
+        <div class="role">
+            <label for="role">Register as: </label>
+            <select name="role" id="role" required="required">
+                <option value=""></option>
+                <option value="student">Student</option>
+                <option value="professor">Professor</option>
+            </select>
+        </div>
+        <span id="error-id" style="display: none;"></span>
+        <div id="submit">
+			<a href="/">Have an account?</a>
+			<button class="login" type="submit">Register</button>
+		</div>
+    </form>
+</body>
+</html>

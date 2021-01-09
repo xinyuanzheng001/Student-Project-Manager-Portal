@@ -1,0 +1,127 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
+:root {
+    --umb-blue: #005A8B;
+    --umb-light-blue: #A0CFEB;
+    --umb-light-gray: #f9f9f9;
+}
+* {
+    font-family: 'Roboto', sans-serif;
+    /* color: var(--umb-light-gray); */
+    box-sizing: border-box;
+}
+
+html {
+    /* background-color: var(--umb-blue); */
+    background-color: white;
+    /* border: 3px solid red; */
+    height: 100vh;
+    position: relative;
+    background-color: #006094;
+}
+
+body {
+    font-family: open sans,helvetica neue,Helvetica,Tahoma,sans-serif;
+    border-radius: 15px; 
+    max-width: 600px;
+    margin: auto;
+    border: 5px solid var(--umb-light-blue);
+    text-align: center;
+    margin-top: 200px;
+    background-color: #006094;
+    color: white;
+}
+
+#login {
+    display: flex;
+    flex-direction: column;
+    /* width: 45vw;
+    position: fixed;
+    left: 28%;
+    flex-flow: column wrap; */
+}
+
+.un, .pw, .student-id, .confirm, .email {
+    margin: 2% 0% 2% 0%;
+    width: 100%;
+    float: left;
+}
+
+input, textarea {
+    color: black;
+    width: 50%;
+    float: left;
+    border-radius: 15px;
+    text-align: center;
+    margin: 5px 0px;
+}
+
+textarea {
+    border-radius: 7.5px;
+    resize: vertical;
+}
+
+input:focus,
+textarea:focus {
+    border-color: pink;
+    width: 50%;
+    outline: none;
+}
+br {
+    clear: left;
+}
+.role {
+    float: left;
+    text-align: center;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+}
+#role {
+    width: 50%;
+    float: left;
+    color: black;
+    border-radius: 15px;
+    height: 22px;
+    text-align: center;
+    
+}
+label {
+    margin-right: 2em;
+    float:left;
+    margin-left: 2em;
+    width: 8em;
+}
+.login, .register {
+    color: black;
+    width: 15%;
+    /* margin-left: 38%;
+    margin-top: 10px; */
+    margin: auto;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+option {
+    color:black;
+    border-radius: 15px;
+}
+a {
+    float: center;
+	margin-right: 10px;
+}
+
+.alert {
+    margin-top: 25px;
+    font-size: 20px;
+    width: 70%;
+    margin: auto;
+    text-align: center;
+    background-color: #014b74;
+}
+
+button {
+    font-weight: 500;
+    display: inline-block;
+    width: 500px;
+}

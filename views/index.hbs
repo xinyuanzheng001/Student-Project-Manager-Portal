@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="/style.css" rel="stylesheet">
+    <title>Project Portal</title>
+</head>
+<header>
+    <h1>Project Portal</h1>
+    <h2>UMass Boston - Computer Science Dept.</h2>
+</header>
+<body>
+    {{#if message }}
+        <p class="alert"> {{ message }} </p>
+    {{/if }}
+    <form id="login" action="/auth/login" method="POST">
+        <div class="email">
+            <label for="email" class="user-email">Email:</label>
+            <input type="email" name="email" id="user-email" required="required" >
+        </div>
+        <div class="pw">
+            <label for="pass" class="pword"> Password:</label>
+            <input type="password" class="pword" id="password" required="required" name="password">
+        </div>
+		<div id="submit">
+			<a href="/register">Create account</a>
+			<button class="login" type="submit">Log In</button>
+		</div>    
+    </form>
+</body>
+</html>
